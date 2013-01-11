@@ -33,7 +33,7 @@ public class ExcelUtils {
 			throw new Exception("文件夹不存在!");
 		
 		File[] filess = new File(dir).listFiles();
-		if(filess.length != 5)
+		if(filess.length != 6)
 			throw new Exception("tmp file is not completed");
 
 		File fileDir = new File(dir);
@@ -303,6 +303,7 @@ public class ExcelUtils {
 		File out1 = new File(dir + "\\2010.csv");
 		File out2 = new File(dir + "\\2011.csv");
 		File out3 = new File(dir + "\\2012.csv");
+		File out4 = new File(dir + "\\2013.csv");
 		int row = 1;
 		StringBuffer buffer = new StringBuffer();
 
@@ -310,6 +311,7 @@ public class ExcelUtils {
 		BufferedWriter bw1 = null;
 		BufferedWriter bw2 = null;
 		BufferedWriter bw3 = null;
+		BufferedWriter bw4 = null;
 		try {
 			br = new BufferedReader(new InputStreamReader(new FileInputStream(
 					inputCsv), "gb2312"));
@@ -319,6 +321,8 @@ public class ExcelUtils {
 					new FileOutputStream(out2), "gb2312"));
 			bw3 = new BufferedWriter(new OutputStreamWriter(
 					new FileOutputStream(out3), "gb2312"));
+			bw4 = new BufferedWriter(new OutputStreamWriter(
+					new FileOutputStream(out4), "gb2312"));
 
 			String value = null;
 			while ((value = br.readLine()) != null) {
@@ -328,6 +332,7 @@ public class ExcelUtils {
 					bw1.write(filterLife(bf) + "\n");
 					bw2.write(filterLife(bf) + "\n");
 					bw3.write(filterLife(bf) + "\n");
+					bw4.write(filterLife(bf) + "\n");
 				}
 
 				if (row > 1) {
@@ -344,6 +349,8 @@ public class ExcelUtils {
 								bw2.write(filterLife(buffer) + "\n");
 							if ("2012".equals(CommonUtils.getYear(val[17])))
 								bw3.write(filterLife(buffer) + "\n");
+							if ("2013".equals(CommonUtils.getYear(val[17])))
+								bw4.write(filterLife(buffer) + "\n");
 							buffer.setLength(0);
 						}
 						if (value != "\r\n") {
@@ -368,6 +375,8 @@ public class ExcelUtils {
 					bw2.write(filterLife(buffer) + "\n");
 				if ("2012".equals(CommonUtils.getYear(val[17])))
 					bw3.write(filterLife(buffer) + "\n");
+				if ("2013".equals(CommonUtils.getYear(val[17])))
+					bw4.write(filterLife(buffer) + "\n");
 			}
 
 			br.close();
@@ -378,6 +387,8 @@ public class ExcelUtils {
 			bw2.close();
 			bw3.flush();
 			bw3.close();
+			bw4.flush();
+			bw4.close();
 			System.out.println("生成成功!");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
