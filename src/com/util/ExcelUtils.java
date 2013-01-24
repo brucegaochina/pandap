@@ -53,7 +53,6 @@ public class ExcelUtils {
 		HSSFSheet sheet = null;
 		HSSFRow row = null;
 		HSSFCell cell = null;
-		HSSFCellStyle style = null;
 
 		BufferedReader br = null;
 		int position;
@@ -71,21 +70,9 @@ public class ExcelUtils {
 			while ((line = br.readLine()) != null) {
 				String[] str = line.split(",");
 				row = sheet.createRow(num++);
-//				style = wr.createCellStyle();
-//				
-//				style.setFillForegroundColor(HSSFColor.YELLOW.index);
-//				style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
-//				style.setBorderBottom(HSSFCellStyle.BORDER_THIN);
-//				style.setBorderLeft(HSSFCellStyle.BORDER_THIN);
-//				style.setBorderRight(HSSFCellStyle.BORDER_THIN);
-//				style.setBorderTop(HSSFCellStyle.BORDER_THIN);
-//				style.setAlignment(HSSFCellStyle.ALIGN_CENTER);
-//				style.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER); 
-//				row.setRowStyle(style);
 				
 				for (int i = 0; i < str.length; i++) {
 					cell = row.createCell(i);
-					//cell.setCellValue(str[i]);
 					cell.setCellValue(CommonUtils.formatDate(str[i]));
 				}
 			}
@@ -430,8 +417,8 @@ public class ExcelUtils {
 		tmp.append(line[9]).append(",");
 		tmp.append(line[39]).append(",");//M
 		tmp.append(line[41]).append(",");//N
-		tmp.append(line[43]).append(",");
-		tmp.append(line[44]).append(",");
+		tmp.append(line[42]).append(",");
+		tmp.append(line[43]).append(",");//p
 		tmp.append(line[45]).append(",");
 		tmp.append(line[49]).append(",");//R
 		tmp.append(line[51]).append(",");//S
