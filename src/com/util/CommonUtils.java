@@ -108,15 +108,6 @@ public class CommonUtils {
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
-//		String str = "Ñîºê¸Õ,\"ÁõÀ×,ÄßÕñ,ºú±ê´º,ÍõÏöÓî\",\"333\",\"44\",\"555\"";
-//		String[] tmp = str.split(",");
-//		System.out.println(str);
-//		String[] new1 = formatCsvRow(tmp);
-//		
-//		for(String s: new1){
-//			System.out.print(s + "||");
-//		}
 	}
 	
 	/** 
@@ -127,7 +118,6 @@ public class CommonUtils {
 		String result = "";
 
 		String str = "^(\\d{1,2}\\/\\d{1,2}\\/\\d{4})$";
-		//String str = "^(\\d{4}\\-\\d{1,2}\\-\\d{1,2})$";
 		Pattern pattern = Pattern.compile(str);
 		Matcher matcher = pattern.matcher(lang.trim());
 
