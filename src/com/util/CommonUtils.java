@@ -91,7 +91,7 @@ public class CommonUtils {
 	}
 	
 	public static void main(String[] args){
-		File file = new File("C:\\Users\\Bruce\\Desktop\\reporter_2.0\\error.csv");
+		File file = new File("C:\\Users\\Bruce\\Desktop\\Outlook (6)\\test.txt");
 		BufferedReader br = null;
 		try{
 			br = new BufferedReader(new InputStreamReader(new FileInputStream(
@@ -102,6 +102,8 @@ public class CommonUtils {
 				String row[] = line.split(",", -1);
 				
 				String n[] = formatCsvRow(row);
+				
+				int i = 1;
 
 				System.out.println(n.toString());
 			}

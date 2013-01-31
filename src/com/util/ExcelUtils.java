@@ -13,7 +13,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JTextField;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
-import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -328,6 +327,7 @@ public class ExcelUtils {
 					if (CommonUtils.isNum(str[0])) {
 						if (buffer.length() > 1) {
 							String[] val = buffer.toString().split(",");
+							val = CommonUtils.formatCsvRow(val);
 							// System.out.println(val.length);
 
 							if ("2010".equals(CommonUtils.getYear(val[17])))
