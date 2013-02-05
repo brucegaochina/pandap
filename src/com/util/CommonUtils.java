@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
  */
 public class CommonUtils {
 	/**
-	 * ´ÓÐèÇó×Ö¶ÎÖÐ»ñÈ¡Äê·ÝÖµ
+	 * ä»Žéœ€æ±‚å­—æ®µä¸­èŽ·å–å¹´ä»½å€¼
 	 * 
 	 * @param str
 	 * @return
@@ -35,7 +35,7 @@ public class CommonUtils {
 	}
 
 	/**
-	 * ÑéÖ¤Ò»¸ö×Ö·û´®ÊÇ·ñÊÇÊý×Ö
+	 * éªŒè¯ä¸€ä¸ªå­—ç¬¦ä¸²æ˜¯å¦æ˜¯æ•°å­—
 	 * 
 	 * @param str
 	 * @return
@@ -49,7 +49,7 @@ public class CommonUtils {
 	}
 	
 	/**
-	 * µ±csvÎÄ¼þµÄÄ³¸öÁÐÖÐ´æÔÚ·Ö¸ô·û,°ÑÆäºÏ²¢ÆðÀ´
+	 * å½“csvæ–‡ä»¶çš„æŸä¸ªåˆ—ä¸­å­˜åœ¨åˆ†éš”ç¬¦,æŠŠå…¶åˆå¹¶èµ·æ¥
 	 */
 	public static String[] formatCsvRow(String[] line){
 		if(line == null || line.length == 0)
@@ -113,7 +113,7 @@ public class CommonUtils {
 	}
 	
 	/** 
-	 * @Description: ×ª»»ÈÕÆÚ¸ñÊ½ DD/MM/YYYY -> YYYY-MM-DD
+	 * @Description: è½¬æ¢æ—¥æœŸæ ¼å¼ DD/MM/YYYY -> YYYY-MM-DD
 	 * 
 	 */  
 	public static String formatDate(String lang) {

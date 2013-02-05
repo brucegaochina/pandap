@@ -20,16 +20,16 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 public class ExcelUtils {
 
 	/**
-	 * °ÑÄ¿Â¼ÏÂÃæµÄËùÓĞcsvÎÄ¼şÉú³ÉÔÚÒ»¸öexcelÖĞ,Ã¿¸öcsvÎÄ¼şÎªÒ»¸ösheet,sheetµÄÃû×ÖÎªÃ¿¸öcsvµÄÎÄ¼şÃû
+	 * æŠŠç›®å½•ä¸‹é¢çš„æ‰€æœ‰csvæ–‡ä»¶ç”Ÿæˆåœ¨ä¸€ä¸ªexcelä¸­,æ¯ä¸ªcsvæ–‡ä»¶ä¸ºä¸€ä¸ªsheet,sheetçš„åå­—ä¸ºæ¯ä¸ªcsvçš„æ–‡ä»¶å
 	 * 
 	 * @param dir
-	 *            csvÎÄ¼şÄ¿Â¼
+	 *            csvæ–‡ä»¶ç›®å½•
 	 * @throws Exception
 	 */
 	public static void exportExcel(String dir, String destiDir) throws Exception {
 
 		if (dir.isEmpty())
-			throw new Exception("ÎÄ¼ş¼Ğ²»´æÔÚ!");
+			throw new Exception("æ–‡ä»¶å¤¹ä¸å­˜åœ¨!");
 		
 		File[] filess = new File(dir).listFiles();
 		if(filess.length != 6)
@@ -38,7 +38,7 @@ public class ExcelUtils {
 		File fileDir = new File(dir);
 		
 		if (!fileDir.isDirectory())
-			throw new Exception("²»ÊÇÓĞĞ§µÄÎÄ¼ş¼Ğ!");
+			throw new Exception("ä¸æ˜¯æœ‰æ•ˆçš„æ–‡ä»¶å¤¹!");
 
 		File outFile = new File(destiDir + "\\result.xls");
 
@@ -83,7 +83,7 @@ public class ExcelUtils {
 	}
 
 	/**
-	 * ÎÄ¼şÑ¡ÔñÆ÷
+	 * æ–‡ä»¶é€‰æ‹©å™¨
 	 * 
 	 * @param chooser
 	 * @param text
@@ -102,13 +102,13 @@ public class ExcelUtils {
 	}
 
 	/**
-	 * ÎÄ¼ş¼ĞÑ¡ÔñÆ÷
+	 * æ–‡ä»¶å¤¹é€‰æ‹©å™¨
 	 * 
 	 * @param chooser
 	 * @param text
 	 */
 	public static void chooserDir(JFileChooser chooser, JTextField text) {
-		chooser.setDialogTitle("±¨±íÊä³öÄ¿Â¼");
+		chooser.setDialogTitle("æŠ¥è¡¨è¾“å‡ºç›®å½•");
 		chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
 		int result = chooser.showOpenDialog(null);
@@ -120,7 +120,7 @@ public class ExcelUtils {
 	}
 
 	/**
-	 * ¶àÔªĞĞÏú
+	 * å¤šå…ƒè¡Œé”€
 	 * 
 	 * @param file
 	 * @param dir
@@ -173,7 +173,7 @@ public class ExcelUtils {
 				}
 				row++;
 			}
-			// Ğ´Èë×îºóÒ»ĞĞ
+			// å†™å…¥æœ€åä¸€è¡Œ
 			if (buffer.length() != 0) {
 				bw.write(filterMul(buffer) + "\n");
 			}
@@ -182,7 +182,7 @@ public class ExcelUtils {
 
 			bw.flush();
 			bw.close();
-			System.out.println("Éú³É³É¹¦!");
+			System.out.println("ç”ŸæˆæˆåŠŸ!");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
@@ -205,7 +205,7 @@ public class ExcelUtils {
 	}
 
 	/**
-	 * ±¼³ÛĞĞÏú
+	 * å¥”é©°è¡Œé”€
 	 * 
 	 * @param file
 	 * @param dir
@@ -258,7 +258,7 @@ public class ExcelUtils {
 				}
 				row++;
 			}
-			// Ğ´Èë×îºóÒ»ĞĞ
+			// å†™å…¥æœ€åä¸€è¡Œ
 			if (buffer.length() != 0) {
 				bw.write(filterBenz(buffer) + "\n");
 			}
@@ -267,14 +267,14 @@ public class ExcelUtils {
 
 			bw.flush();
 			bw.close();
-			System.out.println("Éú³É³É¹¦!");
+			System.out.println("ç”ŸæˆæˆåŠŸ!");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
 
 	/**
-	 * ±ê×¼»¯ÊÙÏÕÒµÎñÊı¾İ
+	 * æ ‡å‡†åŒ–å¯¿é™©ä¸šåŠ¡æ•°æ®
 	 * 
 	 * @param file
 	 * @param dir
@@ -352,7 +352,7 @@ public class ExcelUtils {
 				}
 				row++;
 			}
-			// Ğ´Èë×îºóÒ»ĞĞ
+			// å†™å…¥æœ€åä¸€è¡Œ
 			if (buffer.length() != 0) {
 				String[] val = buffer.toString().split(",");
 
@@ -376,14 +376,14 @@ public class ExcelUtils {
 			bw3.close();
 			bw4.flush();
 			bw4.close();
-			System.out.println("Éú³É³É¹¦!");
+			System.out.println("ç”ŸæˆæˆåŠŸ!");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
 
 	/**
-	 * ¹ıÂË³öÊÙÏÕµÄÓĞĞ§ÁĞ
+	 * è¿‡æ»¤å‡ºå¯¿é™©çš„æœ‰æ•ˆåˆ—
 	 * 
 	 * @param line
 	 * @return
@@ -433,7 +433,7 @@ public class ExcelUtils {
 	}
 
 	/**
-	 * ¹ıÂË¶àÔªĞĞÏúÎÄ¼ş
+	 * è¿‡æ»¤å¤šå…ƒè¡Œé”€æ–‡ä»¶
 	 * 
 	 * @param sf
 	 * @return

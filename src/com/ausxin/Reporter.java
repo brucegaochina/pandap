@@ -53,7 +53,7 @@ public class Reporter {
 
 		displayCenter(shell);
 		
-		// ÉèÖÃ³ÌĞòµÄlogo
+		// è®¾ç½®ç¨‹åºçš„logo
 		Image image = new Image(null,"rs/logo.png");
 		shell.setImage(image);
 		
@@ -190,13 +190,13 @@ public class Reporter {
 			public void widgetSelected(SelectionEvent e) {
 				String outDir = text_3.getText().trim();
 				
-				// ÔÚÓÃ»§ÁãÊ±ÎÄ¼şÄ¿Â¼ÏÂÃæ´´½¨Ò»¸öÁãÊ±ÎÄ¼ş¼Ğ
+				// åœ¨ç”¨æˆ·é›¶æ—¶æ–‡ä»¶ç›®å½•ä¸‹é¢åˆ›å»ºä¸€ä¸ªé›¶æ—¶æ–‡ä»¶å¤¹
 				String tmp = FileUtils.getTmpRandom();
 
 				// standard the csv file
 				ExcelUtils.lifeStandard(text.getText().trim(), tmp);
-				ExcelUtils.standardMul(text_1.getText().trim(), tmp, "¶àÔªĞĞÏú");
-				ExcelUtils.standardBenz(text_2.getText().trim(), tmp, "±¼³ÛĞĞÏú");
+				ExcelUtils.standardMul(text_1.getText().trim(), tmp, "å¤šå…ƒè¡Œé”€");
+				ExcelUtils.standardBenz(text_2.getText().trim(), tmp, "å¥”é©°è¡Œé”€");
 
 				MessageBox msg = null;
 				// create the report file
@@ -207,7 +207,7 @@ public class Reporter {
 					msg.setText(LocaleUtils.getLocal("titleSuccess"));
 					msg.open();
 					
-					// É¾³ıÁãÊ±ÎÄ¼ş¼Ğ¼°ÆäÂ·¾¶
+					// åˆ é™¤é›¶æ—¶æ–‡ä»¶å¤¹åŠå…¶è·¯å¾„
 					FileUtils.deleteFolder(tmp);
 
 				} catch (Exception e1) {
@@ -265,7 +265,7 @@ public class Reporter {
 	}
 	
 	/**
-	 * ÉèÖÃshellµÄÏÔÊ¾Î»ÖÃÎªÆÁÄ»ÖĞÑë
+	 * è®¾ç½®shellçš„æ˜¾ç¤ºä½ç½®ä¸ºå±å¹•ä¸­å¤®
 	 * 
 	 * @param shell
 	 */
