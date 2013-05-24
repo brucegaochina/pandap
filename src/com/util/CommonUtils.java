@@ -26,7 +26,7 @@ public class CommonUtils {
 	 * @return
 	 */
 	public static String getYear(String str) {
-		String res = null;
+		String res = "";
 		if (str != null && str != "") {
 			res = str.substring(2, 6);
 		}

@@ -30,10 +30,6 @@ public class ExcelUtils {
 
 		if (dir.isEmpty())
 			throw new Exception("文件夹不存在!");
-		
-		File[] filess = new File(dir).listFiles();
-		if(filess.length != 6)
-			throw new Exception("tmp file is not completed");
 
 		File fileDir = new File(dir);
 		
@@ -428,7 +424,8 @@ public class ExcelUtils {
 		tmp.append(line[56]).append(",");
 		tmp.append(line[57]).append(",");
 		tmp.append(line[59]).append(",");
-		tmp.append(line[60]).append(",");
+		tmp.append(line[60]).append(",");//计划发布时间
+		tmp.append(line[61]).append(",");//发布时间
 		return tmp;
 	}
 

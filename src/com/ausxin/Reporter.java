@@ -24,7 +24,6 @@ public class Reporter {
 
 	protected Shell shell;
 	private Text text;
-	private Text text_1;
 	private Text text_2;
 	private Text text_3;
 
@@ -50,7 +49,6 @@ public class Reporter {
 		createContents();
 		shell.open();
 		shell.layout();
-
 		displayCenter(shell);
 		
 		// 设置程序的logo
@@ -111,7 +109,7 @@ public class Reporter {
 		shell.setText(LocaleUtils.getLocal("aboutMsg"));
 
 		Group group = new Group(shell, SWT.NONE);
-		group.setBounds(10, 10, 414, 119);
+		group.setBounds(10, 10, 414, 105);
 
 		Label lblNewLabel = new Label(group, SWT.NONE);
 		lblNewLabel.setBounds(10, 20, 83, 15);
@@ -130,29 +128,12 @@ public class Reporter {
 		btnNewButton.setBounds(329, 15, 75, 25);
 		btnNewButton.setText(LocaleUtils.getLocal("scanButton"));
 
-		Label lblNewLabel_1 = new Label(group, SWT.NONE);
-		lblNewLabel_1.setBounds(10, 55, 83, 15);
-		lblNewLabel_1.setText(LocaleUtils.getLocal("mulLabel"));
-
 		Label lblNewLabel_2 = new Label(group, SWT.NONE);
-		lblNewLabel_2.setBounds(10, 89, 83, 15);
+		lblNewLabel_2.setBounds(10, 75, 83, 15);
 		lblNewLabel_2.setText(LocaleUtils.getLocal("benzLabel"));
 
-		text_1 = new Text(group, SWT.BORDER);
-		text_1.setBounds(99, 52, 223, 21);
-
 		text_2 = new Text(group, SWT.BORDER);
-		text_2.setBounds(99, 86, 223, 21);
-
-		Button button = new Button(group, SWT.NONE);
-		button.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				fileDig(shell, text_1);
-			}
-		});
-		button.setText(LocaleUtils.getLocal("scanButton"));
-		button.setBounds(329, 50, 75, 25);
+		text_2.setBounds(99, 72, 223, 21);
 
 		Button button_1 = new Button(group, SWT.NONE);
 		button_1.addSelectionListener(new SelectionAdapter() {
@@ -162,7 +143,7 @@ public class Reporter {
 			}
 		});
 		button_1.setText(LocaleUtils.getLocal("scanButton"));
-		button_1.setBounds(329, 84, 75, 25);
+		button_1.setBounds(329, 70, 75, 25);
 
 		Group group_1 = new Group(shell, SWT.NONE);
 		group_1.setBounds(10, 135, 414, 105);
@@ -195,7 +176,7 @@ public class Reporter {
 
 				// standard the csv file
 				ExcelUtils.lifeStandard(text.getText().trim(), tmp);
-				ExcelUtils.standardMul(text_1.getText().trim(), tmp, "多元行销");
+				//ExcelUtils.standardMul(text_1.getText().trim(), tmp, "多元行销");
 				ExcelUtils.standardBenz(text_2.getText().trim(), tmp, "奔驰行销");
 
 				MessageBox msg = null;
@@ -271,11 +252,15 @@ public class Reporter {
 	 */
 	private void displayCenter(Shell shell){
 		int width = shell.getMonitor().getClientArea().width;
-		int heigth = shell.getMonitor().getClientArea().height;
+		int height = shell.getMonitor().getClientArea().height;
 		int x = shell.getSize().x;
 		int y = shell.getSize().y;
-		
-		// display the shell in the center of monitor
-		shell.setLocation((width - x)/2, (heigth - y)/2);
+		if (x > width) {
+		    shell.getSize().x = width;
+		}
+		if (y > height) {
+		    shell.getSize().y = height;
+		}
+		shell.setLocation((width - x) / 2, (height - y) / 2);
 	}
 }
